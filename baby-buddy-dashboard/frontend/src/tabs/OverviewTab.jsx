@@ -108,8 +108,8 @@ export default function OverviewTab({ childId, demoMode, feedings, weeklyFeeding
           <StatCard
             icon={<Icons.Bottle />}
             label={t("overview.feedings")}
-            value={totalFeeding > 0 ? t("overview.today", { value: `${Math.round(totalFeeding)} ${units.volume}` }) : t("overview.today", { value: feedings.length })}
-            sub={feedingTimeline[0] ? t("overview.lastSync", { time: feedingTimeline[0].detail }) : undefined}
+            value={feedingTimeline[0] ? 'Last fed ' + t("overview.lastSync", { time: feedingTimeline[0].detail }) : undefined}
+            sub={totalFeeding > 0 ? t("overview.today", { value: `${Math.round(totalFeeding)} ${units.volume}` }) : t("overview.today", { value: feedings.length })}
             color={colors.feeding}
             onClick={() => setShowReport(true)}
           />
@@ -118,8 +118,8 @@ export default function OverviewTab({ childId, demoMode, feedings, weeklyFeeding
           <StatCard
             icon={<Icons.Moon />}
             label={t("overview.sleep")}
-            value={`${totalSleep.toFixed(1)}h`}
-            sub={t("overview.last24Hours")}
+            value={sleepBlocks[0] ? 'Woke up ' + t("overview.lastSync", { time: sleepBlocks[0].detail }) : undefined}
+            sub={`${totalSleep.toFixed(1)}h last 24h`}
             color={colors.sleep}
             onClick={() => setShowReport(true)}
           />

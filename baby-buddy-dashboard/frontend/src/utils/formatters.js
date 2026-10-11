@@ -142,13 +142,23 @@ export function toDiaperTimeline(changes) {
 }
 
 export function toSleepBlocks(sleepEntries) {
-  return sleepEntries.map((s) => ({
-    start: formatTime(s.start),
-    end: s.end ? formatTime(s.end) : t("time.ongoing"),
-    duration: parseDuration(s.duration),
-    nap: s.nap,
-    entry: s,
-  }));
+  return sleepEntries.map((s, i, arr) => {
+    const thisTime = new Date(s.end || s.start).getTime();
+    const detail =
+      i === 0
+        ? timeAgo(s.end || s.start)
+        : t("time.gap", { elapsed: formatElapsedHM(new Date(arr[i - 1].end || arr[i - 1].start).getTime() - thisTime) });
+    
+    
+    return {
+      start: formatTime(s.start),
+      end: s.end ? formatTime(s.end) : t("time.ongoing"),
+      duration: parseDuration(s.duration),
+      detail,
+      nap: s.nap,
+      entry: s
+    }
+  });
 }
 
 export function toNoteTimeline(notes) {

@@ -102,7 +102,7 @@ export default {
     diapers: "Diapers",
     tummyTime: "Tummy Time",
     today: "{value} Today",
-    lastSync: "Last: {time}",
+    lastSync: "{time}",
     last24Hours: "Last 24 hours",
     wetSolidBoth: "{wet} wet · {solid} solid · {both} both",
     sessionToday: "{count} session today",

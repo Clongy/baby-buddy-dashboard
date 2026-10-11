@@ -60,7 +60,7 @@ export default function StatCard({ icon, label, value, sub, color, accent, onCli
       </div>
       <div
         style={{
-          fontSize: 28,
+          fontSize: 18,
           fontWeight: 700,
           color: "var(--text)",
           letterSpacing: "-0.02em",
