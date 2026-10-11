@@ -22,7 +22,7 @@ if [ ! -d "$ADDON_DIR/frontend/node_modules" ]; then
   npm --prefix "$ADDON_DIR/frontend" install
 fi
 
-if ! python3 -c "import fastapi" 2>/dev/null; then
+if ! python -c "import fastapi" 2>/dev/null; then
   echo "Installing backend dependencies..."
   pip3 install -r "$ADDON_DIR/backend/requirements.txt"
 fi
@@ -30,7 +30,7 @@ fi
 # --- Start backend (FastAPI on port 8099) ---
 echo "Starting backend at http://localhost:8099 ..."
 echo "Connecting to Baby Buddy at: $BABY_BUDDY_URL"
-python3 -m uvicorn backend.server:app \
+python -m uvicorn backend.server:app \
   --host 0.0.0.0 \
   --port 8099 \
   --log-level info \

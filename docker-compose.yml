@@ -4,7 +4,7 @@ services:
     profiles:
       - full
     environment:
-      - TZ=${TZ:-America/New_York}
+      - TZ=${TZ:-America/Chicago}
     volumes:
       - babybuddy_data:/config
     ports:
@@ -12,7 +12,7 @@ services:
     restart: unless-stopped
 
   dashboard:
-    image: mbentancour/baby-buddy-dashboard:latest
+    image: clongy/baby-buddy-dashboard:latest
     environment:
       - BABY_BUDDY_URL=${BABY_BUDDY_URL:-http://babybuddy:8000}
       - BABY_BUDDY_API_KEY=${BABY_BUDDY_API_KEY}

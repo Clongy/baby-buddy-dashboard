@@ -4,7 +4,7 @@ slug: "baby-buddy-dashboard"
 description: "Modern dashboard for Baby Buddy with charts, timers, and quick-log actions.
               Supports running as a standalone web app or as a Home Assistant add-on.
               It connects to your Baby Buddy instance using its API and provides a user-friendly interface to track your baby's activities and milestones."
-url: "https://github.com/mbentancour/baby-buddy-dashboard"
+url: "https://github.com/clongy/baby-buddy-dashboard"
 init: false
 homeassistant: "2026.4.0"
 arch:
